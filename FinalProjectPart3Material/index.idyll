@@ -1,0 +1,72 @@
+[meta title:"Final_Part3_Ketian_Mao" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"Final_Part3_Ketian_Mao"
+  author:"Ketian Mao"
+  date:`(new Date()).toDateString()`
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+
+#Final Prject Phase 3
+##Author: Ketian Mao
+For the phase three, I would still use the dataset came from the Kaggle.
+
+## Data
+[data name:"google" source:"googleplaystore.csv" /]
+
+[Table data:google /]
+
+## Data Explain
+This is the overview of the datset I would use for the plot. This file is called Google play store apps. This dataset mainly showed some app data on Google Playstore. I would use some plot to show some relationship inside of the data. 
+
+## Interaction Plot - Category to Reviews with Price
+[var name:"colorChange" value:`{}` /]
+
+[IdyllVegaLite data:google spec:`{
+  mark: "bar",
+  encoding: {
+    x: {field:"Category", type:"ordinal"},
+    y: {field:"Reviews", type:"quantitative"},
+	color: colorChange
+  }
+}` /]
+
+Wanna see if free?:
+[button onClick:`colorChange = {}`]None[/button]
+[button onClick:`colorChange = {field: "Type", type: "nominal"}`]Price[/button]
+
+## Descrption
+This plot mainly showed the relationship between Google App Category and Reviews. We could see each barchart means each category, and the reviews between each category is very huge. You might want to how many apps are free for each category, and you could click the button to view the content. You might notice most of them are free, you might hard to count the paid apps. 
+
+
+## plot-one
+
+[IdyllVegaLite data:google spec:`{
+  mark: "bar",
+  encoding: {
+    x: {field:"Type", type:"ordinal"},
+    y: {field:"Reviews", type:"quantitative"}
+  }
+}` /]
+
+## Descrption
+This plot solved the problem on unable to see details of app price. This bar chart count free app reviews and paid app reviews. This plot showed us more people would like to review free app since free app migh have more users. 
+
+## plot-two
+[IdyllVegaLite data:google spec:`{
+  mark: "circle",
+  encoding: {
+    y: {field:"Rating", type:"quantitative"},
+    x: {field:"Category", type:"ordinal"}
+  }
+}` /]
+
+## Descrption
+This plot mainly showed rating score for each catogory. Each circle means one app, users could see the main trends of rating score depending on the depth of shade. We could find most apps might got high score, but app category like tools, family and medical still got many 1 score.
+
+##Reference:
+Gupta, Lavanya. (2018). Google Play Store Apps, Version 6. Retrieved 2018 from https://www.kaggle.com/lava18/google-play-store-apps.
+
