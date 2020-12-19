@@ -1,8 +1,8 @@
-[meta title:"Final_Part3_Ketian_Mao" description:"Short description of your project" /]
+[meta title:"Final Prject -- Something you want to know Google App" description:"Short description of your project" /]
 
 [Header
   fullWidth:true
-  title:"Final_Part3_Ketian_Mao"
+  title:"Final Project"
   author:"Ketian Mao"
   date:`(new Date()).toDateString()`
   background:"#222222"
@@ -10,17 +10,17 @@
    /]
 
 
-#Final Prject Phase 3
 ##Author: Ketian Mao
-For the phase three, I would still use the dataset came from the Kaggle.
+#Introduction
+There are a lot of people who use the Android system on their smartphones. By using the Android system, they would download tons of Google App from the Google Store. So, many developers might think about how could make people download and install my app instead of others. I found an interesting dataset from the Kaggle that recorded a lot of Google app information, and I will use it to find some useful standards. 
 
-## Data
+# Data
 [data name:"google" source:"googleplaystore.csv" /]
 
 [Table data:google /]
 
-## Data Explain
-This is the overview of the datset I would use for the plot. This file is called Google play store apps. This dataset mainly showed some app data on Google Playstore. I would use some plot to show some relationship inside of the data. 
+# Data Explain
+This is the overview of the datset I would use for the plot. The filesize is 1324 KB, and there are total 13 * 10840 values. Right now, it is too hard to find anything just going through the raw data. I would use some plot to show some relationship inside of the data. 
 
 ## Interaction Plot - Category to Reviews with Price
 [var name:"colorChange" value:`{}` /]
@@ -38,11 +38,11 @@ Wanna see if free?:
 [button onClick:`colorChange = {}`]None[/button]
 [button onClick:`colorChange = {field: "Type", type: "nominal"}`]Price[/button]
 
-## Descrption
-This plot mainly showed the relationship between Google App Category and Reviews. We could see each barchart means each category, and the reviews between each category is very huge. You might want to how many apps are free for each category, and you could click the button to view the content. You might notice most of them are free, you might hard to count the paid apps. 
+# what kind of app is the best?
+This plot mainly showed the relationship between Google App Category and Reviews. We could see each barchart means each category, and the reviews between each category is very huge. You might want to how many apps are free for each category, and you could click the button to view the content. The conclusion here is very clear that game, social, and communication always are the most popular kind of app. Ans free app would have more views. But it is still hard to see the detailed data.
 
 
-## plot-one
+## plot-Price with reviews
 
 [IdyllVegaLite data:google spec:`{
   mark: "bar",
@@ -52,10 +52,10 @@ This plot mainly showed the relationship between Google App Category and Reviews
   }
 }` /]
 
-## Descrption
-This plot solved the problem on unable to see details of app price. This bar chart count free app reviews and paid app reviews. This plot showed us more people would like to review free app since free app migh have more users. 
+#So, free is better?
+This plot solved the problem on unable to see details of app price. This bar chart count free app reviews and paid app reviews. We could clear find out that free has more reviews, and the difference could have ten times. But sometimes, more reviews do not mean higher rating and downloads. 
 
-## plot-two
+## plot-category with rating
 [IdyllVegaLite data:google spec:`{
   mark: "circle",
   encoding: {
@@ -64,8 +64,11 @@ This plot solved the problem on unable to see details of app price. This bar cha
   }
 }` /]
 
-## Descrption
-This plot mainly showed rating score for each catogory. Each circle means one app, users could see the main trends of rating score depending on the depth of shade. We could find most apps might got high score, but app category like tools, family and medical still got many 1 score.
+# Is rating similiar to the reviews?
+This plot mainly showed rating score for each catogory. Each circle means one app, users could see the main trends of rating score depending on the depth of shade. We could find most apps might got high score. It seems people always like to leave good comment instead of bad comment. So the conspicous bad comments always mean that people do hate this kind of app. We could find out that app category like tools, family ,and medical got many 1 score, in other words, these type of app are easy to get criticized. 
+
+# Conclusion
+After seeing a lot of data showing from the dataset, we could give app developers on Google some suggestions. First one is that keeping your app free would be a better choice to attract people. And always tring to do game, social, and communication apps instead of tools, family ,and medical apps. Such choices could make you have an easy beginning.  
 
 ##Reference:
 Gupta, Lavanya. (2018). Google Play Store Apps, Version 6. Retrieved 2018 from https://www.kaggle.com/lava18/google-play-store-apps.
